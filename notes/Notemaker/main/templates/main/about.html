@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+About Us
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Professional and clean font */
+            background-color: #f4f4f9; /* Light blue-grey background for a soothing effect */
+            color: #333333; /* Dark grey text for contrast and readability */
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333; /* Deep blue for titles, providing a professional yet striking appearance */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #ffffff; /* Bright white background to enhance content readability */
+            border: 1px solid #d1d1d1; /* Light grey border */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .mission {
+            font-size: 1.1em;
+            color: #444; /* Soft navy tone for mission statement */
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        .team {
+            margin-top: 30px;
+            border-top: 3px solid #333; /* Blue line to visually separate the team section */
+            padding-top: 20px;
+        }
+        .team-member {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .team-member h2 {
+            font-size: 1.2em;
+            color: #333333; /* Keeping headers dark for emphasis */
+        }
+        .team-member p {
+            font-size: 0.95em;
+            color: #595959; /* Dark grey for detailed text, less intense than the headers */
+        }
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            float: left;
+            margin-right: 15px;
+            border: 2px solid #333; /* Dark blue border to match the title */
+        }
+    </style>
+    <h1>About Us</h1>
+    <div class="content">
+    <p class="mission">
+        Welcome to [Your Project Name], a collaborative initiative born at the International Information Technology University (IITU). Our mission is to develop innovative solutions that enhance daily life and push the boundaries of technology in our academic and local communities. We are committed to excellence and innovation in every project we undertake.
+    </p>
+    <div class="team">
+        <h2>Our Team</h2>
+        <div class="team-member">
+            <img src="path/to/jane_doe.jpg" alt="Kaliyeva Aruzhan" class="profile-pic">
+            <h2>Kaliyeva Aruzhan - Founder & Visionary Leader</h2>
+            <p>Aruzhan founded this project with the vision to leverage technology for practical, real-world applications within the university setting. Her leadership and dedication to applying what we learn in the classroom to solve actual problems have been pivotal to our success.</p>
+        </div>
+        <div class="team-member">
+            <img src="path/to/john_smith.jpg" alt="Zhumazhan Akerke" class="profile-pic">
+            <h2>Zhumazhan Akerke - Lead Developer</h2>
+            <p>Akerke leads our development team with a keen eye for detail and a knack for solving complex problems efficiently. Her extensive programming skills and ability to work under pressure have driven many of our project's technical achievements.</p>
+        </div>
+        <div class="team-member">
+            <img src="path/to/emily_zhang.jpg" alt="Kadyrbek Madiyar" class="profile-pic">
+            <h2>Kadyrbek Madiyar - Marketing Strategist</h2>
+            <p>Madiyar orchestrates our marketing strategies with a blend of creativity and analytical skills, ensuring that our project reaches its intended audience effectively. His efforts help bridge the gap between technical development and user engagement.</p>
+        </div>
+        <div class="team-member">
+            <img src="path/to/emily_zhang.jpg" alt="Hakimzhan Amirbek" class="profile-pic">
+            <h2>Hakimzhan Amirbek - Communications Specialist</h2>
+            <p>Amirbek manages our communications, ensuring that our project maintains a clear and consistent message both within the university and in the broader community. His skills in public speaking and digital communication have been essential in promoting our project and gaining support.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

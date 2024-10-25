@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Consistent font choice */
+            background-color: #f9f9f9; /* Light and clean background color */
+            color: #333; /* Dark gray text for good contrast */
+            margin: 40px; /* Consistent spacing */
+            line-height: 1.6; /* Readable line spacing */
+        }
+        h2 {
+            color: #444; /* Slightly dark text for titles */
+            text-align: center; /* Center the main title */
+            margin-bottom: 20px; /* Space below the title */
+        }
+        .list-group {
+            max-width: 600px; /* Optimal reading width */
+            margin: auto; /* Center the list in the page */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            border-radius: 12px; /* Rounded corners */
+        }
+        .list-group-item {
+            background: white; /* Clear background for list items */
+            padding: 15px; /* Spacious padding */
+            border: none; /* Remove default borders */
+            margin-bottom: 5px; /* Space between items */
+            transition: background-color 0.2s; /* Smooth transition for hover */
+        }
+        .list-group-item:hover {
+            background-color: #eee; /* Highlight item on hover */
+        }
+        .d-flex {
+            display: flex;
+            justify-content: space-between; /* Space out elements */
+            align-items: center; /* Align elements vertically */
+        }
+        h5 {
+            margin: 0; /* No margin to maximize space */
+            color: #333; /* Header color for readability */
+        }
+        small {
+            color: #666; /* Lighter text for small elements */
+        }
+        p {
+            margin: 5px 0 0; /* Spacing for paragraph */
+        }
+        a {
+            color: inherit; /* Ensure links don't stand out */
+            text-decoration: none; /* No underline */
+        }
+        a:hover {
+            text-decoration: none; /* Maintain no underline on hover */
+        }
+    </style>
+    <h2>Your notes</h2>
+    {% if notes %}
+        <div class="list-group">
+        {% for el in notes %}
+              <a href="{% url 'note_info' el.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ el.title }}</h5>
+                  <small class="text-muted">{{ el.created_at|date:"F d, Y H:i" }}</small>
+                </div>
+                <p class="mb-1">{{ el.content }}</p>
+              </a>
+        {% endfor %}
+        </div>
+    {% else %}
+    <div class="empty-state">
+                <div class="icon-placeholder">🙈</div>
+                <h2>There's nothing here yet.</h2>
+                <a href="{% url 'create' %}" class="btn btn-primary">Create a Note</a>
+            </div>
+    {% endif %}
+
+    <br>
+{% endblock %}

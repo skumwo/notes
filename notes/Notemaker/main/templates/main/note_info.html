@@ -1,0 +1,69 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ note.title }}
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Elegant, sans-serif font */
+            background-color: #f9f9f9; /* Very light gray background */
+            color: #333; /* Dark gray text for contrast */
+            margin: 40px; /* Consistent spacing around the content */
+            line-height: 1.6; /* Improved line spacing for readability */
+        }
+        h1 {
+            color: #444; /* Slightly dark text for the header */
+            text-align: center; /* Center alignment for the header */
+            margin-bottom: 30px; /* Space below the header */
+        }
+        form {
+            background: white; /* White background for clarity */
+            padding: 30px; /* Generous padding for a spacious layout */
+            border-radius: 12px; /* Gentle rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+            max-width: 600px; /* Max width for optimal reading */
+            margin: auto; /* Auto margins for horizontal centering */
+            border: 1px solid #ddd; /* Subtle border */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+        }
+        .note-section {
+            padding: 8px 0; /* Padding for separation */
+            border-bottom: 1px solid #eee; /* Subtle line to separate sections */
+        }
+        .note-section:last-child {
+            border-bottom: none; /* No border for the last section */
+        }
+        .btn {
+            background-color: #dc3545; /* Red color for danger */
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+            display: block; /* Block level element */
+            width: 100%; /* Full width for emphasis */
+            text-align: center; /* Center text inside the button */
+            margin-top: 20px; /* Space above the button */
+        }
+        .btn:hover {
+            background-color: #c82333; /* Darker red on hover */
+            transform: translateY(-2px); /* Slight lift when hovered */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Deeper shadow on hover */
+        }
+    </style>
+    <h1>Delete Note</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="note-section">
+            <strong>Title:</strong> {{ note.title }}
+        </div>
+        <div class="note-section">
+            <strong>Content:</strong> {{ note.content }}
+        </div>
+        <button type="submit" class="btn">Delete</button>
+    </form>
+{% endblock %}
